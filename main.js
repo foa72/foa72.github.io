@@ -16,3 +16,14 @@ function sendMessage() {
   
   input.value = ''; // Clear textbox
 }
+
+const sendBtn = document.getElementById("sendBtn");
+
+sendBtn.addEventListener("click", () => {
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+});
+
