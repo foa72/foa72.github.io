@@ -1,3 +1,8 @@
+const chat = document.getElementById("chat");
+const input = document.getElementById("message");
+
+let index = 0;
+
 const input = document.getElementById("message");
 const text = "happy anniversary. i love you and..";
 let index = 0;
