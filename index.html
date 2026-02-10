@@ -1,34 +1,19 @@
 <!DOCTYPE html>
-<html>
-<head><title>happy anniversary baby 💝</title>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-  <link rel="stylesheet" href="style.css">
+  <title>Typing Animation</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<button id="sendBtn">Send</button>
+<body>
 
-<body style="background: #91044b; text-align:center; font-family:Arial;"> 
-     
-<div class="chat-container">
-  <input type="text" id="messageInput" placeholder="Type your message..." maxlength="100">
-  <button class="send-btn" onclick="sendMessage()">Send 💌</button>
-  <div id="sentMessage" class="sent-message"></div>
-</div>
+  <h1 id="title">It's Valentine!!! :D</h1>
 
-<h1 style="color:#ff1493;">happy anniversary baby</h1>
-<p style="font-size:24px;">blah blah</p>
-  <div class="four">
-        <div class="text-box">
-          <p class="hbd-chatbox">
-            Happy Anniversary! woohoo! i love you and blah blah...
-          </p>
-          <p class="fake-btn">Send</p>
-        </div>
-      </div>
-   <div class="five">
- <script src="main.js"></script>
+  <div id="chat" class="hidden">
+    <input id="message" type="text" disabled />
+    <button>Send</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
