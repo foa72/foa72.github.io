@@ -7,13 +7,13 @@ body {
   margin-top: 80px;
 }
 
-#title {
+title {
   margin-bottom: 40px;
   opacity: 0;
   animation: fadeIn 1s forwards;
 }
 
-#chat {
+chat {
   display: flex;
   gap: 8px;
   opacity: 0;
@@ -21,7 +21,7 @@ body {
   transition: 0.5s ease;
 }
 
-#chat.show {
+chat.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -46,7 +46,7 @@ button {
   display: none;
 } 
 
-#fake-cursor {
+fake-cursor {
   position: fixed;
   width: 20px;
   height: 20px;
@@ -59,7 +59,7 @@ button {
   z-index: 9999;
 }
 
-#fake-cursor.show {
+fake-cursor.show {
   opacity: 1;
 }
 
