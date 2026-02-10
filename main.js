@@ -1,7 +1,7 @@
 const chat = document.getElementById("chat");
 const input = document.getElementById("message");
 
-const text = "Happy Valentine's Day!! Yeee! Love and blah blah...";
+const text = "Happy anniversary!! i love you and..";
 let index = 0;
 
 // show chat after title animation
@@ -12,7 +12,7 @@ setTimeout(() => {
 }, 1500);
 
 function startTyping() {
-  const typingSpeed = 80; // ms per character
+  const typingSpeed = 70; // ms per character
 
   function type() {
     if (index < text.length) {
