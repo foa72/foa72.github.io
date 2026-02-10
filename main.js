@@ -1,18 +1,26 @@
-function sendMessage() {
-  const input = document.getElementById('messageInput');
-  const sentMsg = document.getElementById('sentMessage');
-  const message = input.value.trim();
-  
-  if (!message) return;
-  
-  // Show typed message
-  sentMsg.textContent = message;
-  sentMsg.classList.remove('fly-away');
-  
-  // Animate fly-away and clear input
-  setTimeout(() => {
-    sentMsg.classList.add('fly-away');
-  }, 500);
-  
-  input.value = ''; // Clear textbox
+const chat = document.getElementById("chat");
+const input = document.getElementById("message");
+
+const text = "Happy Valentine's Day!! Yeee! Love and blah blah...";
+let index = 0;
+
+// show chat after title animation
+setTimeout(() => {
+  chat.classList.remove("hidden");
+  chat.classList.add("show");
+  startTyping();
+}, 1500);
+
+function startTyping() {
+  const typingSpeed = 80; // ms per character
+
+  function type() {
+    if (index < text.length) {
+      input.value += text.charAt(index);
+      index++;
+      setTimeout(type, typingSpeed);
+    }
+  }
+
+  type();
 }
