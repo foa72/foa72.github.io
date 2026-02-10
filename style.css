@@ -44,4 +44,26 @@ button {
 
 .hidden {
   display: none;
+} 
+
+#fake-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+  transform: rotate(-45deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 9999;
 }
+
+#fake-cursor.show {
+  opacity: 1;
+}
+
+#fake-cursor.click {
+  transform: rotate(-45deg) scale(0.85);
+}
+
