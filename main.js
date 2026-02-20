@@ -1,74 +1,19 @@
-const chat = document.getElementById("chat");
 const input = document.getElementById("message");
+const sendBtn = document.getElementById("sendBtn");
+const chatBox = document.getElementById("chatBox");
+const newMessage = document.getElementById("newMessage");
 
+const text = "Happy anniversary, I love you and..";
 let index = 0;
 
-const input = document.getElementById("message");
-const text = "happy anniversary. i love you and..";
-let index = 0;
+/* ---------------- RESET ---------------- */
 
 function resetTyping() {
   index = 0;
   input.value = "";
 }
 
-
-// show chat after title animation
-setTimeout(() => {
-  chat.classList.remove("hidden");
-  chat.classList.add("show");
-  startTyping();
-}, 1500);
-
-function startTyping() {
-  const typingSpeed = 70; // ms per character
-
-  function type() {
-    if (index < text.length) {
-      input.value += text.charAt(index);
-      index++;
-      setTimeout(type, typingSpeed);
-    }
-  } 
-
-  type();
-} 
-
-
-window.onload = () => {
-  resetTyping();
-  startTyping();
-};
-
-const sendBtn = document.getElementById("sendBtn");
-const fakeCursor = document.getElementById("fake-cursor");
-
-function moveCursorToButton() {
-  const rect = sendBtn.getBoundingClientRect();
-
-  fakeCursor.style.left = rect.left + rect.width / 2 + "px";
-  fakeCursor.style.top = rect.top + rect.height / 2 + "px";
-}
-
-function fakeClick() {
-  fakeCursor.classList.add("click");
-
-  setTimeout(() => {
-    fakeCursor.classList.remove("click");
-    sendBtn.click(); // 🔥 real click
-  }, 200);
-}
-
-function runFakeCursor() {
-  fakeCursor.classList.add("show");
-  moveCursorToButton();
-
-  setTimeout(fakeClick, 500);
-
-  setTimeout(() => {
-    fakeCursor.classList.remove("show");
-  }, 1200);
-}
+/* ---------------- TYPING ---------------- */
 
 function startTyping() {
   const speed = 80;
@@ -79,10 +24,48 @@ function startTyping() {
       index++;
       setTimeout(type, speed);
     } else {
-      runFakeCursor(); // 👈 cursor appears AFTER typing
+      setTimeout(fakeButtonPress, 600);
     }
   }
 
   type();
 }
 
+/* ---------------- BUTTON PRESS ---------------- */
+
+function fakeButtonPress() {
+  sendBtn.classList.add("pressed");
+
+  setTimeout(() => {
+    sendBtn.classList.remove("pressed");
+    sendBtn.click();
+  }, 150);
+}
+
+/* ---------------- CLICK LOGIC ---------------- */
+
+sendBtn.addEventListener("click", () => {
+
+  // Confetti 🎉
+  confetti({
+    particleCount: 120,
+    spread: 80,
+    origin: { y: 0.6 }
+  });
+
+  // Fade everything out
+  chatBox.classList.add("fade-out");
+
+  // After fade completes
+  setTimeout(() => {
+    chatBox.style.display = "none";
+    newMessage.classList.add("show");
+  }, 800);
+});
+
+/* ---------------- LOAD ---------------- */
+
+window.onload = () => {
+  resetTyping();
+  startTyping();
+};
