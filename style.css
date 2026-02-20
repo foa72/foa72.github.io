@@ -109,5 +109,35 @@ fake-cursor.show {
 #newMessage.show {
   opacity: 1;
   transform: scale(1);
+} 
+
+/* ---------- HIDDEN STATE ---------- */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- INTRO POP ---------- */
+#introText {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.6s ease;
+  margin-top: 120px;
+}
+
+#introText.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- FADE OUT ---------- */
+.fade-out {
+  opacity: 0;
+  transition: 0.8s ease;
+}
+
+/* ---------- CHAT APPEAR ---------- */
+.chat-box {
+  transition: 0.6s ease;
 }
 
