@@ -1,10 +1,31 @@
+
+const introText = document.getElementById("introText");
+const chatBox = document.getElementById("chatBox");
 const input = document.getElementById("message");
 const sendBtn = document.getElementById("sendBtn");
-const chatBox = document.getElementById("chatBox");
-const newMessage = document.getElementById("newMessage");
 
 const text = "Happy anniversary, I love you and..";
 let index = 0;
+
+/* ---------------- INTRO SEQUENCE ---------------- */
+
+function startIntro() {
+
+  // 1️⃣ Pop intro text
+  introText.classList.add("show");
+
+  // 2️⃣ Fade it out after 2s
+  setTimeout(() => {
+    introText.classList.add("fade-out");
+  }, 2000);
+
+  // 3️⃣ Remove intro and show chatbox
+  setTimeout(() => {
+    introText.style.display = "none";
+    chatBox.classList.remove("hidden");
+    startTyping();
+  }, 2800);
+}
 
 /* ---------------- RESET ---------------- */
 
@@ -15,7 +36,11 @@ function resetTyping() {
 
 /* ---------------- TYPING ---------------- */
 
+
 function startTyping() {
+  input.value = "";
+  index = 0;
+
   const speed = 80;
 
   function type() {
@@ -42,30 +67,23 @@ function fakeButtonPress() {
   }, 150);
 }
 
-/* ---------------- CLICK LOGIC ---------------- */
+
+/* ---------------- CLICK EVENT ---------------- */
 
 sendBtn.addEventListener("click", () => {
 
-  // Confetti 🎉
-  confetti({
-    particleCount: 120,
-    spread: 80,
-    origin: { y: 0.6 }
-  });
-
-  // Fade everything out
+  // Fade chatbox out
   chatBox.classList.add("fade-out");
 
-  // After fade completes
   setTimeout(() => {
     chatBox.style.display = "none";
-    newMessage.classList.add("show");
   }, 800);
 });
 
-/* ---------------- LOAD ---------------- */
+
+
+/* ---------------- START EVERYTHING ---------------- */
 
 window.onload = () => {
-  resetTyping();
-  startTyping();
+  startIntro();
 };
